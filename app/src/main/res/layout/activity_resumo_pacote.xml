@@ -3,21 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activity.ResumoPacoteActivity">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/activity_resumo_pacote_banner"
         android:layout_width="0dp"
         android:layout_height="140dp"
-        android:contentDescription="Foto da cidade do pacote"
+        android:contentDescription="@string/descricao_banner_resumo_pacote"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/sao_paulo_sp" />
+        tools:srcCompat="@drawable/sao_paulo_sp" />
 
     <TextView
         android:id="@+id/activity_resumo_pacote_local"
@@ -69,13 +68,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/activity_resumo_pacote_periodo"
+        tools:ignore="TextContrastCheck"
         tools:text="R$ 243,99" />
 
     <TextView
         android:id="@+id/activity_resumo_pacote_label_preco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Preço final:"
+        android:text="@string/label_preco_final"
         app:layout_constraintBottom_toTopOf="@+id/activity_resumo_pacote_preco"
         app:layout_constraintEnd_toEndOf="@+id/activity_resumo_pacote_preco" />
 
@@ -83,10 +83,7 @@
         android:id="@+id/activity_resumo_pacote_botao_pagto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_margin="8dp"
         android:background="@drawable/botao_redondo_laranja"
         android:text="@string/botao_realizar_pagamento"
         android:textColor="@android:color/white"
@@ -94,6 +91,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

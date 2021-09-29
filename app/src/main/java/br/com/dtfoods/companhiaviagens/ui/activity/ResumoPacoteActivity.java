@@ -2,9 +2,9 @@ package br.com.dtfoods.companhiaviagens.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,29 +29,42 @@ public class ResumoPacoteActivity extends AppCompatActivity {
 
       setTitle(TITULO_APPBAR);
 
-      Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"));
+      Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"), Calendar.getInstance());
 
-      TextView local = findViewById(R.id.activity_resumo_pacote_local);
-      local.setText(pacoteSaoPaulo.getLocal());
+      mostraLocal(pacoteSaoPaulo);
+      mostraImagem(pacoteSaoPaulo);
+      mostraDias(pacoteSaoPaulo);
+      mostraPreco(pacoteSaoPaulo);
+      mostraPeriodo(pacoteSaoPaulo);
 
-      ImageView imagem = findViewById(R.id.activity_resumo_pacote_banner);
-      Drawable drawable = ResourceUtil.devolverDrawable(this, pacoteSaoPaulo.getImagem());
-      imagem.setImageDrawable(drawable);
+      Intent intent = new Intent(this, PagamentoActivity.class);
+      startActivity(intent);
+   }
 
-      TextView dias = findViewById(R.id.activity_resumo_pacote_dias);
-      dias.setText(DiasUtil.formataEmTexto(pacoteSaoPaulo.getDias()));
-
-      TextView preco = findViewById(R.id.activity_resumo_pacote_preco);
-      preco.setText(MoedaUtil.formataMoedaBrasileira(pacoteSaoPaulo.getPreco()));
-
+   private void mostraPeriodo(Pacote pacote) {
       TextView periodo = findViewById(R.id.activity_resumo_pacote_periodo);
-      Calendar dataIda = Calendar.getInstance();
-      Calendar dataVolta = Calendar.getInstance();
-      dataVolta.add(Calendar.DATE, pacoteSaoPaulo.getDias());
-      SimpleDateFormat formatoBrasileiro = new SimpleDateFormat("dd/MM");
-      String dataFormatadaIda = formatoBrasileiro.format(dataIda.getTime());
-      String dataFormatadaVolta = formatoBrasileiro.format(dataVolta.getTime());
-      String dataFormatadaDaViagem = dataFormatadaIda + " - " + dataFormatadaVolta + " de " + dataVolta.get(Calendar.YEAR);
+      String dataFormatadaDaViagem = DiasUtil.formataPeriodoEmTexto(pacote.getDataInicio(), pacote.getDataFinal());
       periodo.setText(dataFormatadaDaViagem);
+   }
+
+   private void mostraPreco(Pacote pacote) {
+      TextView preco = findViewById(R.id.activity_resumo_pacote_preco);
+      preco.setText(MoedaUtil.formataMoedaBrasileira(pacote.getPreco()));
+   }
+
+   private void mostraDias(Pacote pacote) {
+      TextView dias = findViewById(R.id.activity_resumo_pacote_dias);
+      dias.setText(DiasUtil.formataEmTexto(pacote.getDias()));
+   }
+
+   private void mostraImagem(Pacote pacote) {
+      ImageView imagem = findViewById(R.id.activity_resumo_pacote_banner);
+      Drawable drawable = ResourceUtil.devolverDrawable(this, pacote.getImagem());
+      imagem.setImageDrawable(drawable);
+   }
+
+   private void mostraLocal(Pacote pacote) {
+      TextView local = findViewById(R.id.activity_resumo_pacote_local);
+      local.setText(pacote.getLocal());
    }
 }
