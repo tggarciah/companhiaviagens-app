@@ -4,7 +4,7 @@
     <string name="paises">Brasil</string>
     <string name="banner_inicial_dos_pacotes">Banner inicial dos pacotes</string>
     <string name="botao_realizar_pagamento">Realizar pagamento</string>
-    <string name="descricao_banner_resumo_pacote">Foto da cidade do pacote</string>
+    <string name="descricao_imagem_pacote">Foto da cidade do pacote</string>
     <string name="label_preco_final">Preço final:</string>
     <string name="mensagem_informacao_pagamento">Digite as informações do cartão de crédito que você deseja usar para o pagamento</string>
     <string name="mascara_nome_cartao">abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ\u0020</string>
@@ -15,4 +15,7 @@
     <string name="cartao_cvc">CVC</string>
     <string name="cartao_nome">Nome no cartão</string>
     <string name="finalizar_compra">Finalizar Compra</string>
+    <string name="resumo_compra_parabens">Parabéns!</string>
+    <string name="resumo_compra_realizada_sucesso">Compra realizada com sucesso :)</string>
+    <string name="resumo_compra_conferencia">Confira o resumo da compra:</string>
 </resources>

@@ -9,7 +9,7 @@
         android:id="@+id/activity_resumo_pacote_banner"
         android:layout_width="0dp"
         android:layout_height="140dp"
-        android:contentDescription="@string/descricao_banner_resumo_pacote"
+        android:contentDescription="@string/descricao_imagem_pacote"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
