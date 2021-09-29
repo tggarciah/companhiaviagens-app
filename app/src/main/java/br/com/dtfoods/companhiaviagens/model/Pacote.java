@@ -1,9 +1,10 @@
 package br.com.dtfoods.companhiaviagens.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
-public class Pacote {
+public class Pacote implements Serializable {
 
    private final String local;
    private final String imagem;

@@ -1,14 +1,15 @@
 package br.com.dtfoods.companhiaviagens.ui.activity;
 
+import static br.com.dtfoods.companhiaviagens.ui.activity.PacoteActivityConstantes.CHAVE_PACOTE;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.math.BigDecimal;
-import java.util.Calendar;
+import android.widget.Toast;
 
 import br.com.dtfoods.companhiaviagens.R;
 import br.com.dtfoods.companhiaviagens.model.Pacote;
@@ -24,15 +25,25 @@ public class ResumoCompraActivity extends AppCompatActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_resumo_compra);
-
       setTitle(TITULO_APPBAR);
 
-      Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"), Calendar.getInstance());
+      carregaPacoteRecebido();
+   }
 
-      mostraImagem(pacoteSaoPaulo);
-      mostraLocal(pacoteSaoPaulo);
-      mostraPeriodo(pacoteSaoPaulo);
-      mostraPreco(pacoteSaoPaulo);
+   private void carregaPacoteRecebido() {
+      Intent intent = getIntent();
+      if (intent.hasExtra(CHAVE_PACOTE)) {
+         Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_PACOTE);
+
+         inicializaCampos(pacote);
+      }
+   }
+
+   private void inicializaCampos(Pacote pacote) {
+      mostraImagem(pacote);
+      mostraLocal(pacote);
+      mostraPeriodo(pacote);
+      mostraPreco(pacote);
    }
 
    private void mostraPreco(Pacote pacote) {
